@@ -15,25 +15,26 @@ int main() {
     int x;
     int wins = 0;
     int losses = 0;
-    int val = 0;
-
+    int ties = 0;
+    int outcome = 0;
+    
     while (std::cin >> x) {
         switch (x) {
         case 0:
             break;
         case 1: 
-            std::cout << "You entered rock\n"; std::cout << "Computer entered \n";  if (compOutput(dist3(generator), 1) > 0) wins++; else losses++; break;
+	  std::cout << "You entered rock\n";  outcome = compOutput(dist3(generator), 1); if ( outcome > 0 ) wins++; else if( outcome == 0 ) ties++; else losses++;  break;
         case 2:
-            std::cout << "You entered paper\n"; std::cout << "Computer entered "; if (compOutput(dist3(generator), 2) > 0) wins++; else losses++; break;
+	 std::cout << "You entered paper\n";  outcome = compOutput(dist3(generator), 2); if ( outcome > 0 ) wins++; else if( outcome == 0 ) ties++; else losses++; break;
         case 3:
-            std::cout << "You entered scissors\n"; std::cout << "Computer entered "; if (compOutput(dist3(generator), 3) > 0) wins++; else losses++; break;
+	 std::cout << "You entered scissors\n";  outcome = compOutput(dist3(generator), 3); if ( outcome > 0 ) wins++; else if( outcome == 0 ) ties++; else losses++; break;
         default:
-            std::cout << "Invalid entry please try again\n;";  break;
+          std::cout << "Invalid entry please try again\n;";  break;
         }
         if (x == 0) break;
     }
 
-    std::cout << "Total wins : " << wins << " Total losses: " << losses;
+    std::cout << "Total wins : " << wins << " Total losses: " << losses << " Ties: " << ties;
 
     return 0;
 }
@@ -52,6 +53,7 @@ int compOutput(int computer, int player) {
         default:
             break;
         }
+	break;
     case 2:
         switch (player) {
         case 1:
@@ -63,6 +65,7 @@ int compOutput(int computer, int player) {
         default:
             break;
         }
+	break;
     case 3:
         switch (player) {
         case 1:
@@ -74,6 +77,7 @@ int compOutput(int computer, int player) {
         default:
             break;
         }
+	break;
     default: break;
     }
     return val;
