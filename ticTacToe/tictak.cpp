@@ -49,12 +49,6 @@ void promptMove(int order, std::string board[3][3]) {
 
 }
 
-  /*
-void computerAi( int move, std::board[3][3] ) {
-
-  board[
-  
-  } */
 
 void initBoard( std::string board[3][3] ) {
    for(int i = 0; i < 3; i++)
@@ -62,6 +56,7 @@ void initBoard( std::string board[3][3] ) {
        board[i][j] = " ";
    }
 }
+
 
 void drawBoard( std::string board[3][3]) {
   std::cout << "drawing board:\n\n";
@@ -75,16 +70,17 @@ void drawBoard( std::string board[3][3]) {
   std::cout << "\n\n";
 }
 
+
 bool winCondition( std::string board[3][3], std::string player ) {
   // top left
   if(board[0][0] == board[0][1] && board[0][0] == board[0][2] && board[0][0] == player) return true;
   if(board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == player) return true;
   if(board[0][0] == board[1][0] && board[0][0] == board[2][0] && board[0][0] == player) return true;
   // top mid
-  if(board[1][0] == board[1][1] && board[1][0] == board[1][2] && board[1][0] == player) return true;
+  if(board[0][1] == board[1][1] && board[0][1] == board[1][2] && board[0][1] == player) return true;
   // top right
-  if(board[2][0] == board[2][1] && board[2][0] == board[2][2] && board[2][0] == player) return true;
-  if(board[2][0] == board[1][1] && board[2][0] == board[0][2] && board[2][0] == player) return true;
+  if(board[0][2] == board[1][2] && board[0][2] == board[2][2] && board[0][2] == player) return true;
+  if(board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == player) return true;
   // mid left
   if(board[1][0] == board[1][1] && board[1][0] == board[1][2] && board[1][0] == player) return true;
   return false;
